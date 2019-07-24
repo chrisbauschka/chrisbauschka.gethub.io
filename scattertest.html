@@ -13,14 +13,14 @@ margin = 50
 //const data = await d3.csv(
 //    "https://flunky.github.io/cars2017.csv");
 const data = await d3.csv(
-    "https://chrisbauschka.github.io/chrisbauschka.gethub.io/cars2017.csv");
+    "https://chrisbauschka.github.io/chrisbauschka.gethub.io/SFRealEstateDistricts.csv");
 
 
 x = d3.scaleLinear()
-	.domain([10, 150])
+	.domain([10, 2000])
 	.range([0, 200]);
 y = d3.scaleLinear()
-	.domain([10, 150])
+	.domain([10, 2000])
 	.range([200,0]);
      //   .tickValues([10, 20, 50, 100]);
 size = d3.scaleLinear()
@@ -36,9 +36,9 @@ d3.select("svg")
 .data(data)
 .enter()
 .append("circle")
-    .attr("cx", function(d) {return x(d.AverageCityMPG) })
-    .attr("cy", function(d) {return y(d.AverageHighwayMPG) })
-    .attr("r", function(d) {return size(d.EngineCylinders) });
+    .attr("cx", function(d) {return x(d.Selling_Price_Sum000) })
+    .attr("cy", function(d) {return y(d.Square_Footage_Avg) })
+    .attr("r", function(d) {return size(d.District) });
 
 //y axis
 d3.select("svg")
