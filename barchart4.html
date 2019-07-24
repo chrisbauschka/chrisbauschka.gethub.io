@@ -2,10 +2,12 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> rect {fill: lightblue; stroke: black; }</style>
 <body onload='init()'>
-   <button onclick="Year2017"> 2017
-   </button>
-   <button onclick="Year2016"> 2016
-   </button>
+   <div class="control-group">
+      <button onclick="Year2017()"> 2017
+      </button>
+      <button onclick="Year2016()"> 2016
+      </button>
+   </div>
 <svg width=800 height=800>
 </svg>
 <script>
@@ -19,16 +21,13 @@ margin = 50;
 
 const data2 =  await d3.csv("https://chrisbauschka.github.io/chrisbauschka.gethub.io/SFRealEstateDistricts.csv");
 
-var data_select;
+const data2016 =  await d3.csv("https://chrisbauschka.github.io/chrisbauschka.gethub.io/SFRealEstateDistricts2016.csv");
 
 xs = d3.scaleBand().domain([0,1,2,3,4,5,6,7,8,9]).range([0,600]);
 ys = d3.scaleLinear().domain([0,2000]).range([400,0]);
 
-function Year2017() {
-   data_select = data2
-}
 
-function Year2016() {}
+//function render(data) {
 
 d3.select("svg")
    .attr("width",600 + 2 * margin)
@@ -66,8 +65,36 @@ d3.select("svg")
     .call(xAxis);
 
 
+function Year2017() {
+   //render(data2);
+   //d3.selectAll("svg > *").remove();
+
+   var svg = d3.select("svg");
+   svg.selectAll("rect").remove();
+
+
+   // d3.select("svg")
+   // .attr("width",600 + 2 * margin)
+   // .attr("height",400 + 2 * margin)
+   // .append("g")
+   // .attr("transform","translate(50,50)")
+   // .selectAll("rect")
+   // .data(data2)
+   // .enter()
+   // .append("rect")
+   // .attr("x", function(d,i) {return xs(i) + 20 })
+   // .attr("y", 200)
+   // .attr("width", 20)
+   // .attr("height", 400 - 200);
+}
+
+function Year2016() {
+   //render(data2016);
+}
 
 }
+
+//}
 </script>
 </body>
 </html>

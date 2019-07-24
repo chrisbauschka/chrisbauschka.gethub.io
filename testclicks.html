@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<style>
+.h-bar {
+    min-height:15px;
+    min-width: 10px;
+    width:0px;
+    height:0px;
+    background-color: steelblue;
+    margin-bottom: 2px;
+    font-size: 11px;
+    color: #f0f8ff;
+    text-align: right;
+    padding-right: 2px;
+}
+
+.control-group {
+    padding-top: 10px;
+    margin: 10px;
+}
+
+.selected {
+    background-color: #f08080;
+}
+
+</style>
+<head>
+    <meta charset="utf-8">
+    <title>Data Filter</title>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+</head>
+
+<body>
+    <div class="control-group">
+    <button onclick="select('Retail')">
+        2017
+    </button>
+    <button onclick="select('Gas')">
+        2016
+    </button>
+    <button onclick="select('Dining')">
+        Dining
+    </button>
+    <button onclick="select()">
+        Clear
+    </button>
+</div>
+<svg width=800 height=800>
+</svg>
+
+<script type="text/javascript">
+    var data = [ // <-A
+        {expense: 10, category: "Retail"},
+        {expense: 15, category: "Gas"},
+        {expense: 30, category: "Retail"},
+        {expense: 50, category: "Dining"},
+        {expense: 80, category: "Gas"},
+        {expense: 65, category: "Retail"},
+        {expense: 55, category: "Gas"},
+        {expense: 30, category: "Dining"},
+        {expense: 20, category: "Retail"},
+        {expense: 10, category: "Dining"},
+        {expense: 8, category: "Gas"}
+    ];
+
+    var data2 = [4,8,15,16,23,42, 41, 24, 34, 28];
+    margin = 50;
+
+    xs = d3.scaleBand().domain([0,1,2,3,4,5,6,7,8,9]).range([0,600]);
+    ys = d3.scaleLinear().domain([0,2000]).range([400,0]);
+
+    function render(data, category) {
+    	
+                
+    d3.select("svg")
+     .attr("width",600 + 2 * margin)
+     .attr("height",400 + 2 * margin)
+      .append("g")
+      .attr("transform","translate(50,50)")
+      .selectAll("rect")
+      .data(data2)
+      .enter()
+      .append("rect")
+      .attr("x", function(d,i) {return xs(i) + 20 })
+      .attr("y", function(d) {return ys(d)})
+      .attr("width", 20)
+      .attr("height", function(d, i) {return 400 - ys(d)});
+       
+    }
+
+  //  render(data);
+
+    function select(category) {
+        render(data, category);
+        
+    }
+</script>
+
+</body>
+
+</html>
+
