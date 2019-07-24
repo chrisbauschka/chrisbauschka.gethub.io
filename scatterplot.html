@@ -12,6 +12,10 @@ async function init() {
 margin = 50
 const data = await d3.csv(
     "https://flunky.github.io/cars2017.csv");
+//const data = await d3.csv(
+ //   "/Users/cbauschka/Documents/GitHub/chrisbauschka.gethub.io/cars2017.csv");
+
+
 x = d3.scaleLinear()
 	.domain([10, 150])
 	.range([0, 200]);
