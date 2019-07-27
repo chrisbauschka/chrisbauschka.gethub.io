@@ -7,31 +7,39 @@
 <!-- Text -->
 <div class="container">
         <div class="blurb">
-            <h1>San Francisco Real Estate - Average Selling Prices per District</h1>
+            <h1>What are the factors driving San Francisco housing prices?</h1>
+
 
         </div><!-- /.blurb -->
     </div><!-- /.container -->
+
+<div>
+<button onclick="window.location.href = 'index.html';">Previous</button>
+<button onclick="window.location.href = 'index.html';">Next</button>
+<button onclick="window.location.href = 'index.html';">Back to Home</button>
+</div>
+
+<p>In this series of charts we will examine some of the factors that drive housing prices in San Francisco.  </p>
+
+<p>The first chart shows how the prices have changed each quarter over the period 2015-2017.  We see a slight dip over 2015 followed by generally rising prices in 2016 and a generally flat 2017.  But what is the seasonality pattern in terms of when the most units are sold?  Find out on the next page. 
+
+<p>Press the buttons to see the relative prices of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
 
 <!-- Add 2 buttons -->
 <button onclick="update('Selling_Price_Avg_All')">All Units</button>
 <button onclick="update('Selling_Price_Avg_Condo')">Condos Only</button>
 <button onclick="update('Selling_Price_Avg_Resi')">Houses Only</button>
 
+<h2>San Francisco Real Estate - Average Selling Prices 2015 - 2017</h2>
+
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
-
-           <pre>
-        <p>Division 1 - Richmond, GGP                              Division 6 - Civic Center, SoMa, Mission Bay</p>
-        <p><pre>Division 2 - Marina, Pacific Heights, Presidio          Division 7 - Twin Peaks, West Portal, Stonestown, Lakeside </p>
-        <p><pre>Division 3  - North Beach, Chinatown, Russian Hill      Division 8 - Castro, Noe Valley, Glen Park</p>
-        <p>Division 4 - Central & Outer Sunset, Parkside           Division 9 - Mission, Portola</p>
-        <p>Division 5 - Inner Sunset, Haight, Hayes Valley         Division 10 - Potrero Hill, Dogpatch, Bayview</p></pre>
 
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 460 - margin.left - margin.right,
+var margin = {top: 30, right: 30, bottom: 70, left: 100},
+    width = 860 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -66,11 +74,11 @@ function update(selectedVar) {
 
     // X axis
     x.domain(data.map(function(d) { return d.YearQuarter; }))
-    xAxis.transition().duration(1000).call(d3.axisBottom(x))
+    xAxis.transition().duration(1000).style("font", "14px sans-serif").call(d3.axisBottom(x))
 
     // Add Y axis
     y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
-    yAxis.transition().duration(1000).call(d3.axisLeft(y));
+    yAxis.transition().duration(1000).style("font", "14px sans-serif").call(d3.axisLeft(y));
 
     // variable u: map data to existing bars
     var u = svg.selectAll("rect")
