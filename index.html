@@ -7,7 +7,7 @@
 <!-- Text -->
 <div class="container">
         <div class="blurb">
-            <h1>What are the factors driving San Francisco housing prices?</h1>
+            <h1 style="font-family:arial;">What are the factors driving San Francisco housing prices?</h1>
 
 
         </div><!-- /.blurb -->
@@ -19,18 +19,20 @@
 
 </div>
 
-<p>In this series of charts we will examine some of the factors that drive housing prices in San Francisco.  </p>
 
-<p>The first chart shows how the prices have changed each quarter over the period 2015-2017.  We see a slight dip over 2015 followed by generally rising prices in 2016 and a generally flat 2017.  But what is the seasonality pattern in terms of when the most units are sold?  Find out on the next page. 
 
-<p>Press the buttons for the relative prices of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
+<p style="font-family:arial;">In this series of charts we will examine some of the factors that drive housing prices in San Francisco.  </p>
+
+<p style="font-family:arial;">The first chart shows how the prices have changed each quarter over the period 2015-2017.  We see a slight dip over 2015 followed by generally rising prices in 2016 and a generally flat 2017.  But what is the seasonality pattern in terms of when the most units are sold?  Find out on the next page. 
+</p>
+<p style="font-family:arial;">Press the buttons for the relative prices of Condos, Houses, or All units to see how these housing types have fared over this time period. </p>
 
 <!-- Add 2 buttons -->
 <button onclick="update('Selling_Price_Avg_All')">All Units</button>
 <button onclick="update('Selling_Price_Avg_Condo')">Condos Only</button>
 <button onclick="update('Selling_Price_Avg_Resi')">Houses Only</button>
 
-<h2>San Francisco Real Estate - Average Selling Prices 2015 - 2017</h2>
+<h2 style="font-family:arial;">San Francisco Real Estate - Average Selling Prices 2015 - 2017</h2>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
@@ -102,5 +104,9 @@ function update(selectedVar) {
 
 // Initialize plot
 update('Selling_Price_Avg_All')
+
+svg.append("text").attr("x", 70).attr("y", -10).text("(Decline in 2015)").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+
+svg.append("text").attr("x", 530).attr("y", -10).text("(Flat growth in 2017)").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
 
 </script>

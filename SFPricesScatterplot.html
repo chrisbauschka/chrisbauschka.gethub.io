@@ -7,7 +7,7 @@
 <!-- Text -->
 <div class="container">
         <div class="blurb">
-            <h1>How do San Francisco prices relate overall to House Size and District?</h1>
+            <h1 style="font-family:arial;">How do San Francisco prices relate overall to House Size and District?</h1>
 
 
         </div><!-- /.blurb -->
@@ -18,13 +18,13 @@
 <button onclick="window.location.href = 'index.html';">Back to Home</button>
 </div>
 
-<p>Finally, let's look at how House Size and District influence housing prices.  </p>
+<p style="font-family:arial;">Finally, let's look at how House Size and District influence housing prices.  </p>
 
-<p>We notice a strong relationship between Square Feet and Selling Price as shown on the graph.  The relationship is linear for smaller house sizes, with greatly increasing variablity at larger house sizes (4000+ square feet).   </p> 
+<p style="font-family:arial;">We notice a strong relationship between Square Feet and Selling Price as shown on the graph.  The relationship is linear for smaller house sizes, with greatly increasing variablity at larger house sizes (4000+ square feet).   </p> 
 
-<p>In addition, we notice how Districts influence overall house prices at a given house size.  Paciific Heights/Marina (District 7) units are consistently higher across the spectrum, with the Mission (District 5) and Nob Hill (District 8) not far behind.</p>
+<p style="font-family:arial;">In addition, we notice how Districts influence overall house prices at a given house size.  Paciific Heights/Marina (District 7) units are consistently higher across the spectrum, with the Mission (District 5) and Nob Hill (District 8) not far behind.</p>
 
-<h2>San Francisco Real Estate - Selling Price vs. Square Feet for All Units Sold in 2017</h2>
+<h2 style="font-family:arial;">San Francisco Real Estate - Selling Price vs. Square Feet for All Units Sold in 2017</h2>
 
 
 <!-- Create a div where the graph will take place -->
@@ -92,16 +92,16 @@ svg.append("circle").attr("cx",750).attr("cy",230).attr("r", 6).style("fill", "g
 svg.append("circle").attr("cx",750).attr("cy",270).attr("r", 6).style("fill", "orange")
 svg.append("circle").attr("cx",750).attr("cy",300).attr("r", 6).style("fill", "lightblue")
 svg.append("circle").attr("cx",750).attr("cy",330).attr("r", 6).style("fill", "darkblue")
-svg.append("text").attr("x", 770).attr("y", 50).text("District 1 - Richmond, GGP, Lake St, Sea Cliff").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 80).text("District 2 - Sunset, GG Heights, Parkside").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 110).text("District 3 - Lakeside, Oceanview, Stonestown").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 140).text("District 4 - Ingleside Terrace, St Francis Wood").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 170).text("District 5 - Buena Vista/Ashbury, Cole Valley, Mission").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 200).text("District 6 - Alamo Square, Hayes Valley, Western Addition").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 230).text("District 7 - Marina, Pacific Heights").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 270).text("District 8 - Downtown, Nob Hill, North Beach, Russian Hill").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 300).text("District 9 - Bernal Heights, Inner Mission, Potrero Hill").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 770).attr("y", 330).text("District 10 - Potrero Hill, Dogpatch, Bayview").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 50).text("District 1 - Richmond, GGP, Lake St, Sea Cliff").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 80).text("District 2 - Sunset, GG Heights, Parkside").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 110).text("District 3 - Lakeside, Oceanview, Stonestown").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 140).text("District 4 - Ingleside Terrace, St Francis Wood").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 170).text("District 5 - Buena Vista/Ashbury, Cole Valley, Mission").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 200).text("District 6 - Alamo Square, Hayes Valley, Western Addition").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 230).text("District 7 - Marina, Pacific Heights").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 270).text("District 8 - Downtown, Nob Hill, North Beach, Russian Hill").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 300).text("District 9 - Bernal Heights, Inner Mission, Potrero Hill").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 330).text("District 10 - Potrero Hill, Dogpatch, Bayview").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
 
 })
 

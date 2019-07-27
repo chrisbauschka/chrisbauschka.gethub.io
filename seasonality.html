@@ -7,7 +7,7 @@
 <!-- Text -->
 <div class="container">
         <div class="blurb">
-            <h1>What is the seasonality in San Francisco housing units sold?</h1>
+            <h1 style="font-family:arial;">What is the seasonality in San Francisco housing units sold?</h1>
 
 
         </div><!-- /.blurb -->
@@ -19,20 +19,20 @@
 <button onclick="window.location.href = 'index.html';">Back to Home</button>
 </div>
 
-<p>Looking at the units sold over time, we see a clear seasonality pattern.  </p>
+<p style="font-family:arial;">Looking at the units sold over time, we see a clear seasonality pattern.  </p>
 
-<p>Most units are sold over the summer months in Q2 and Q3, a traditional time for households to move due to the school season and graduations.  We see the lowest sales in Q4 each year. </p> 
+<p style="font-family:arial;">Most units are sold over the summer months in Q2 and Q3, a traditional time for households to move due to the school season and graduations.  We see the lowest sales in Q4 each year. </p> 
 
-<p>But how do prices vary across the various geographic districts in San Francisco?  Find out on the next page. </p>
+<p style="font-family:arial;">But how do prices vary across the various geographic districts in San Francisco?  Find out on the next page. </p>
 
-<p>Press the buttons for the relative units sold of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
+<p style="font-family:arial;">Press the buttons for the relative units sold of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
 
 <!-- Add 2 buttons -->
 <button onclick="update('Subdist_Desc_Count_All')">All Units</button>
 <button onclick="update('Subdist_Desc_Count_Condo')">Condos Only</button>
 <button onclick="update('Subdist_Desc_Count_Resi')">Houses Only</button>
 
-<h2>San Francisco Real Estate - Units Sold per Quarter 2015 - 2017</h2>
+<h2 style="font-family:arial;">San Francisco Real Estate - Units Sold per Quarter 2015 - 2017</h2>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
@@ -103,5 +103,9 @@ function update(selectedVar) {
 
 // Initialize plot
 update('Subdist_Desc_Count_All')
+
+svg.append("text").attr("x", 70).attr("y", -20).text("(High Selling Season)").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 300).attr("y", -20).text("(High Selling Season)").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 500).attr("y", -20).text("(High Selling Season)").style("font-size", "15px").style("font-family", "Arial").attr("alignment-baseline","middle")
 
 </script>
