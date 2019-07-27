@@ -7,13 +7,13 @@
 <!-- Text -->
 <div class="container">
         <div class="blurb">
-            <h1>San Francisco Real Estate - Average Selling Prices per District</h1>
+            <h1>How do prices vary across Districts in San Francisco?</h1>
 
         </div><!-- /.blurb -->
     </div><!-- /.container -->
 
 <button onclick="window.location.href = 'seasonality.html';">Previous</button>
-<button onclick="window.location.href = 'index.html';">Next</button>
+<button onclick="window.location.href = 'SFPricesScatterplot.html';">Next</button>
 <button onclick="window.location.href = 'index.html';">Back to Home</button>
 
 <p>The average selling prices vary widely by district.  We see an outlier in Pacific Heights (District 7) where a number of $10M+ homes skew the average in this district.  We see higher averages in the desirable neighborhoods of Sea Cliff (in District 1) and St. Francis Wood (in District 4).  We also see the clear price appreciation in the Mission District over 2015-2017 due to its proximity to tech companies in Silicon Valley. </p>
@@ -28,31 +28,24 @@
 <!-- Add 2 buttons -->
 <button onclick="update('Selling_Price_Avg2015')">2015</button>
 <button onclick="update('Selling_Price_Avg2016')">2016</button>
-<button onclick="update('Selling_Price_Avg2017')">S2017</button>
+<button onclick="update('Selling_Price_Avg2017')">2017</button>
 
-
+<h2>San Francisco Real Estate - Average Selling Price per District (in $1000s)</h2>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
-
-           <pre>
-        <p>District 1 - Richmond, GGP, Lake St, Sea Cliff          District 6 - Alamo Square, Hayes Valley, Western Addition</p>
-        <p>District 2 - Sunset, GG Heights, Parkside               District 7 - Marina, Pacific Heights </p>
-        <p>District 3  - Lakeside, Oceanview, Stonestown           District 8 - Downtown, Nob Hill, North Beach, Russian Hill</p>
-        <p>District 4 - Ingleside Terrace, St Francis Wood         District 9 - Bernal Heights, Inner Mission, Potrero Hill</p>
-        <p>District 5 - Buena Vista/Ashbury, Cole Valley, Mission  District 10 - Potrero Hill, Dogpatch, Bayview</p></pre>
 
 <script>
 
 // set the dimensions and margins of the graph
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 860 - margin.left - margin.right,
+    width = 820 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
+    .attr("width", width + margin.left + margin.right + 500)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
@@ -76,7 +69,6 @@ var yAxis = svg.append("g")
 function update(selectedVar) {
 
   // Parse the Data
-  //d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv", function(data) {
   d3.csv("https://chrisbauschka.github.io/chrisbauschka.gethub.io/SFRealEstateDistrictsMultiyear.csv", function(data) {
 
     // X axis
@@ -109,5 +101,16 @@ function update(selectedVar) {
 
 // Initialize plot
 update('Selling_Price_Avg2017')
+
+svg.append("text").attr("x", 770).attr("y", 50 - 50).text("District 1 - Richmond, GGP, Lake St, Sea Cliff").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 80 - 50).text("District 2 - Sunset, GG Heights, Parkside").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 110 - 50).text("District 3 - Lakeside, Oceanview, Stonestown").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 140 - 50).text("District 4 - Ingleside Terrace, St Francis Wood").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 170 - 50).text("District 5 - Buena Vista/Ashbury, Cole Valley, Mission").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 200 - 50).text("District 6 - Alamo Square, Hayes Valley, Western Addition").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 230 - 50).text("District 7 - Marina, Pacific Heights").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 270 - 50).text("District 8 - Downtown, Nob Hill, North Beach, Russian Hill").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 300 - 50).text("District 9 - Bernal Heights, Inner Mission, Potrero Hill").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 770).attr("y", 330 - 50).text("District 10 - Potrero Hill, Dogpatch, Bayview").style("font-size", "15px").attr("alignment-baseline","middle")
 
 </script>

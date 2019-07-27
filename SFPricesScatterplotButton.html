@@ -18,14 +18,20 @@
 <button onclick="window.location.href = 'index.html';">Back to Home</button>
 </div>
 
-<p>Finally, let's look at how House Size and District influence housing prices.  </p>
+<p>Looking at the units sold over time, we see a clear seasonality pattern.  </p>
 
-<p>We notice a strong relationship between Square Feet and Selling Price as shown on the graph.  The relationship is linear for smaller house sizes, with greatly increasing variablity at larger house sizes (4000+ square feet).   </p> 
+<p>Most units are sold over the summer months in Q2 and Q3, a traditional time for households to move due to the school season and graduations.  We see the lowest sales in Q4 each year. </p> 
 
-<p>In addition, we notice how Districts influence overall house prices at a given house size.  Paciific Heights/Marina (District 7) units are consistently higher across the spectrum, with the Mission (District 5) and Nob Hill (District 8) not far behind.</p>
+<p>But how do prices vary across the various geographic districts in San Francisco?  Find out on the next page. </p>
+
+<p>Press the buttons for the relative units sold of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
 
 <h2>San Francisco Real Estate - Selling Price vs. Square Feet for All Units Sold in 2017</h2>
 
+<!-- Initialize a select button -->
+<select id="selectButton"></select>
+<p></p>
+<p></p>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
@@ -46,7 +52,26 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+
+
+//Read the data
 d3.csv("https://chrisbauschka.github.io/chrisbauschka.gethub.io/SFPricesbySale2017.csv", function(data) {
+
+// A function that create / update the plot for a given variable:
+function update(selectedVar) {
+
+// List of groups 
+    var allGroup = d3.map(data, function(d){return(d.District)}).keys()
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+     	.data(allGroup)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
 
 // Add X axis
   var x = d3.scaleLinear()
@@ -74,14 +99,18 @@ d3.csv("https://chrisbauschka.github.io/chrisbauschka.gethub.io/SFPricesbySale20
     .data(data)
     .enter()
     .append("circle")
-      //.filter(function(d) { return d.District = "2" })
+      .filter(function(d) { return d.District = selectedVar })
       .attr("cx", function (d) { return x(d.Square_Footage); } )
       .attr("cy", function (d) { return y(d.Selling_Price); } )
       .attr("r", 5)
       //.style("fill","red")
       .style("fill", function (d) { return color(d.District) } )
+}
 
-// legend
+// Initialize plot
+update(["2"])
+
+// Handmade legend
 svg.append("circle").attr("cx",750).attr("cy",50).attr("r", 6).style("fill", "red")
 svg.append("circle").attr("cx",750).attr("cy",80).attr("r", 6).style("fill", "blue")
 svg.append("circle").attr("cx",750).attr("cy",110).attr("r", 6).style("fill", "green")
@@ -102,6 +131,8 @@ svg.append("text").attr("x", 770).attr("y", 230).text("District 7 - Marina, Paci
 svg.append("text").attr("x", 770).attr("y", 270).text("District 8 - Downtown, Nob Hill, North Beach, Russian Hill").style("font-size", "15px").attr("alignment-baseline","middle")
 svg.append("text").attr("x", 770).attr("y", 300).text("District 9 - Bernal Heights, Inner Mission, Potrero Hill").style("font-size", "15px").attr("alignment-baseline","middle")
 svg.append("text").attr("x", 770).attr("y", 330).text("District 10 - Potrero Hill, Dogpatch, Bayview").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
 
 })
 
