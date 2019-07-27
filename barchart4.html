@@ -10,6 +10,12 @@
    </div>
 <svg width=800 height=800>
 </svg>
+<button type="button" onclick="changeColor('blue')">Blue</button>
+<button type="button" onclick="changeColor('red')">Red</button>
+
+<!-- Create a div where the circle will take place -->
+<div id="dataviz_buttonTriger"></div>
+
 <script>
 async function init() {
 //var data = [4,8,15,16,23,42, 41, 24, 34, 28];
@@ -29,7 +35,7 @@ ys = d3.scaleLinear().domain([0,2000]).range([400,0]);
 
 //function render(data) {
 
-d3.select("svg")
+var render = d3.select("svg")
    .attr("width",600 + 2 * margin)
    .attr("height",400 + 2 * margin)
    .append("g")
@@ -64,13 +70,32 @@ d3.select("svg")
     .attr("transform","translate(50,450)")
     .call(xAxis);
 
+var myCircle = d3.select("#dataviz_buttonTriger")
+  .append("svg")
+  .append("circle")
+    .attr("cx", 100)
+    .attr("cy", 70)
+    .attr("r", 50)
+    .attr("stroke", "black")
 
-function Year2017() {
+// A function that update the color circle
+var changeColor = function(color){
+  myCircle
+    .style("fill", color)
+}
+
+
+var Year2017 = function() {
    //render(data2);
    //d3.selectAll("svg > *").remove();
 
-   var svg = d3.select("svg");
-   svg.selectAll("rect").remove();
+   //var svg = d3.select("svg");
+   //svg.selectAll("rect").remove();
+
+   render
+     .selectAll("rect")
+      .attr("width", 40)
+      .attr("style", "fill: red");
 
 
    // d3.select("svg")
