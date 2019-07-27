@@ -7,7 +7,7 @@
 <!-- Text -->
 <div class="container">
         <div class="blurb">
-            <h1>What are the factors driving San Francisco housing prices?</h1>
+            <h1>What is the seasonality in San Francisco housing units sold?</h1>
 
 
         </div><!-- /.blurb -->
@@ -15,22 +15,24 @@
 
 <div>
 <button onclick="window.location.href = 'index.html';">Previous</button>
-<button onclick="window.location.href = 'index.html';">Next</button>
+<button onclick="window.location.href = 'PricesPerDistrict.html';">Next</button>
 <button onclick="window.location.href = 'index.html';">Back to Home</button>
 </div>
 
-<p>In this series of charts we will examine some of the factors that drive housing prices in San Francisco.  </p>
+<p>Looking at the units sold over time, we see a clear seasonality pattern.  </p>
 
-<p>The first chart shows how the prices have changed each quarter over the period 2015-2017.  We see a slight dip over 2015 followed by generally rising prices in 2016 and a generally flat 2017.  But what is the seasonality pattern in terms of when the most units are sold?  Find out on the next page. 
+<p>Most units are sold over the summer months in Q2 and Q3, a traditional time for households to move due to the school season and graduations.  We see the lowest sales in Q4 each year. </p> 
 
-<p>Press the buttons to see the relative prices of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
+<p>But how do prices vary across the various geographic districts in San Francisco?  Find out on the next page. </p>
+
+<p>Press the buttons for the relative units sold of Condos, Houses, or All units to see how these housing types have fared over this time period.</p>
 
 <!-- Add 2 buttons -->
-<button onclick="update('Selling_Price_Avg_All')">All Units</button>
-<button onclick="update('Selling_Price_Avg_Condo')">Condos Only</button>
-<button onclick="update('Selling_Price_Avg_Resi')">Houses Only</button>
+<button onclick="update('Subdist_Desc_Count_All')">All Units</button>
+<button onclick="update('Subdist_Desc_Count_Condo')">Condos Only</button>
+<button onclick="update('Subdist_Desc_Count_Resi')">Houses Only</button>
 
-<h2>San Francisco Real Estate - Average Selling Prices 2015 - 2017</h2>
+<h2>San Francisco Real Estate - Units Sold per Quarter 2015 - 2017</h2>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
@@ -101,6 +103,6 @@ function update(selectedVar) {
 }
 
 // Initialize plot
-update('Selling_Price_Avg_All')
+update('Subdist_Desc_Count_All')
 
 </script>
